@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  postgres-db:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=123
+      - PGDATA=/var/lib/postgresql/pgdata/
+      - POSTGRES_DB=hillel_python_pro
+    volumes:
+      - pgdata:/var/lib/postgresql/pgdata/
+    ports:
+      - "5432:5432"
+
+  web:
+    build: .
+    image: django_ocheretko
+    links:
+      - postgres-db:db
+    volumes:
+      - .:/src
+    environment:
+      - DJANGO_SETTINGS_MODULE=config.settings.docker
+    ports:
+      - "8000:8000"
+
+volumes:
+  pgdata: {}
