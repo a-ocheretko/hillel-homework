@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<h1><center>Hello!</center></h1>
+<br>
+<p><center>To generate a random string please enter string length (integer from 1 to 100) and if digits and
+    specials should be used (0 - False, 1 - True)</center></p>
+<br>
+<form class="row g-3" action="/random">
+    <center>
+        <div class="col-auto">
+            <label for="POST-name">Length:</label>
+            <input id="POST-name" type="text" name="length" value="20">
+            <label for="POST-name">Digits:</label>
+            <input id="POST-name" type="text" name="digits" value="0">
+            <label for="POST-name">Specials:</label>
+            <input id="POST-name" type="text" name="specials" value="0">
+            <div class="col-auto">
+                <br>
+                <button type="submit" class="btn">Submit</button>
+            </div>
+        </div>
+    </center>
+</form>
+{% endblock %}
